@@ -1,0 +1,16 @@
+{
+  "name": "gnark-playground-circom",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Circom/Circomkit workspace for generating proofs to aggregate in gnark recursion",
+  "scripts": {
+    "compile": "circomkit compile mul_a && circomkit compile mul_b",
+    "setup": "circomkit setup mul_a && circomkit setup mul_b",
+    "prove": "circomkit prove mul_a default && circomkit prove mul_b default",
+    "verify": "circomkit verify mul_a default && circomkit verify mul_b default",
+    "all": "npm run compile && npm run setup && npm run prove && npm run verify"
+  },
+  "dependencies": {
+    "circomkit": "0.3.4"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "mul_a": {
+    "file": "multiplier",
+    "template": "Multiplier",
+    "pubs": [
+      "in"
+    ],
+    "params": [
+      2
+    ]
+  },
+  "mul_b": {
+    "file": "multiplier",
+    "template": "Multiplier",
+    "pubs": [
+      "in"
+    ],
+    "params": [
+      3
+    ]
+  }
+}
