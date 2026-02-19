@@ -1,4 +1,9 @@
-.PHONY: tidy generate recursive circom-install circom-prove aggregate-circom test-go test-solidity test
+.PHONY: tidy generate recursive bench-prove circom-install circom-prove aggregate-circom test-go test-solidity test
+
+BENCH_ITERS ?= 3
+BENCH_WORKLOADS ?= basic,recursive,aggregate
+BENCH_OUT ?= ../artifacts/bench/prove_bench.json
+BENCH_CACHE ?= true
 
 tidy:
 	cd zk && go mod tidy
@@ -8,6 +13,9 @@ generate:
 
 recursive:
 	cd zk && go run ./cmd/gnark-recursive
+
+bench-prove:
+	cd zk && go run ./cmd/bench-prove -iterations $(BENCH_ITERS) -workloads "$(BENCH_WORKLOADS)" -out "$(BENCH_OUT)" -cache=$(BENCH_CACHE)
 
 circom-install:
 	cd circom && npm install

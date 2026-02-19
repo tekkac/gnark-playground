@@ -44,6 +44,24 @@ make test-solidity
 make recursive
 ```
 
+4. Measure proving times (basic, recursive, aggregate):
+
+```bash
+make bench-prove
+```
+
+Report path:
+
+- `artifacts/bench/prove_bench.json`
+
+Notes:
+
+- setup is reused per workload (compile/setup once, then multiple prove+verify runs),
+- default benchmark runs 3 prove iterations per workload.
+- compile/setup artifacts are cached under `artifacts/bench/cache/` and reused on later runs.
+- override example: `make bench-prove BENCH_ITERS=5 BENCH_WORKLOADS=basic,recursive`
+- disable cache for fresh rebuild: `make bench-prove BENCH_CACHE=false`
+
 ## Circom to gnark recursion (two proofs)
 
 1. Generate two Circom proofs:
