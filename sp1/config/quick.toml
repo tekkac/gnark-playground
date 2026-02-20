@@ -1,0 +1,43 @@
+profile = "quick"
+repeats = 3
+cleanup_policy = "strict_ephemeral"
+proof_modes = ["compressed", "groth16", "plonk"]
+
+[recursion]
+enabled = ["chain", "binary_tree"]
+chain_depths = [2, 4, 8]
+binary_tree_leaves = [4, 8, 16]
+
+[pricing]
+mode = "static"
+eth_usd = 2727.36
+gas_gwei = 5.0
+groth16_verify_gas = 270000
+plonk_verify_gas = 300000
+
+[[workloads]]
+name = "hash_merkle"
+tier = "micro"
+
+[[workloads.cases]]
+label = "s"
+leaves = 64
+rounds = 32
+
+[[workloads]]
+name = "sig_batch"
+tier = "medium"
+
+[[workloads.cases]]
+label = "s"
+batch_size = 64
+rounds = 32
+
+[[workloads]]
+name = "vm_stress"
+tier = "large"
+
+[[workloads.cases]]
+label = "s"
+steps = 20000
+loops = 8

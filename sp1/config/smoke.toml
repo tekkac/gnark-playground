@@ -1,0 +1,25 @@
+profile = "smoke"
+repeats = 1
+cleanup_policy = "strict_ephemeral"
+proof_modes = ["compressed"]
+
+[recursion]
+enabled = ["chain"]
+chain_depths = [2]
+binary_tree_leaves = [4]
+
+[pricing]
+mode = "static"
+eth_usd = 2727.36
+gas_gwei = 5.0
+groth16_verify_gas = 270000
+plonk_verify_gas = 300000
+
+[[workloads]]
+name = "hash_merkle"
+tier = "micro"
+
+[[workloads.cases]]
+label = "smoke"
+leaves = 16
+rounds = 8

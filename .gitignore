@@ -16,3 +16,9 @@ circom/circuits/main/
 
 # Generated shared artifacts
 artifacts/
+
+# SP1
+sp1/target/
+sp1/contracts/cache/
+sp1/contracts/out/
+sp1/programs/*/elf/

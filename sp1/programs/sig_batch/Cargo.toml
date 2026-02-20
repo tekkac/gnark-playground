@@ -1,0 +1,11 @@
+[package]
+name = "sig_batch"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+sha2 = { workspace = true }
+sp1-zkvm = { workspace = true }

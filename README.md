@@ -19,10 +19,32 @@ Playground split into three trees:
 ```text
 .
 ├── circom/
+├── sp1/
 ├── zk/
 ├── onchain/
 └── artifacts/
 ```
+
+## SP1 benchmark flow
+
+Run from repo root:
+
+```bash
+make sp1-doctor
+make sp1-bench-smoke
+make sp1-bench-quick
+make sp1-bench-full
+make sp1-gas PROOF_SYSTEM=groth16
+make sp1-compare SP1_REPORT=artifacts/sp1/reports/sp1_quick.json
+make sp1-ci-quick
+```
+
+Notes:
+
+- all intermediate benchmark artifacts are written under `/tmp/sp1-bench/<run_id>` and removed before report persistence,
+- persisted reports go under `artifacts/sp1/reports/`,
+- proof bytes/witnesses are not stored in reports; only hashes/sizes/metrics are recorded.
+- `bench_runner` defaults to real local SP1 proving (`sp1_local_cpu`), with `--engine deterministic` available for fast CI smoke tests.
 
 ## Basic gnark + onchain flow
 

@@ -1,0 +1,24 @@
+[package]
+name = "bench_runner"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = { workspace = true }
+clap = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+toml = { workspace = true }
+sha2 = { workspace = true }
+hex = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+ctrlc = { workspace = true }
+bincode = { workspace = true }
+sp1-sdk = { workspace = true }
+hash_merkle = { path = "../../programs/hash_merkle" }
+sig_batch = { path = "../../programs/sig_batch" }
+vm_stress = { path = "../../programs/vm_stress" }
+
+[dev-dependencies]
+tempfile = "3.13"

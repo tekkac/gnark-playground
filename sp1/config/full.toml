@@ -1,0 +1,73 @@
+profile = "full"
+repeats = 5
+cleanup_policy = "strict_ephemeral"
+proof_modes = ["compressed", "groth16", "plonk"]
+
+[recursion]
+enabled = ["chain", "binary_tree"]
+chain_depths = [2, 4, 8]
+binary_tree_leaves = [4, 8, 16]
+
+[pricing]
+mode = "static"
+eth_usd = 2727.36
+gas_gwei = 5.0
+groth16_verify_gas = 270000
+plonk_verify_gas = 300000
+
+[[workloads]]
+name = "hash_merkle"
+tier = "micro"
+
+[[workloads.cases]]
+label = "s"
+leaves = 64
+rounds = 32
+
+[[workloads.cases]]
+label = "m"
+leaves = 512
+rounds = 64
+
+[[workloads.cases]]
+label = "l"
+leaves = 2048
+rounds = 96
+
+[[workloads]]
+name = "sig_batch"
+tier = "medium"
+
+[[workloads.cases]]
+label = "s"
+batch_size = 64
+rounds = 32
+
+[[workloads.cases]]
+label = "m"
+batch_size = 256
+rounds = 48
+
+[[workloads.cases]]
+label = "l"
+batch_size = 1024
+rounds = 64
+
+[[workloads]]
+name = "vm_stress"
+tier = "large"
+
+[[workloads.cases]]
+label = "s"
+steps = 20000
+loops = 8
+
+[[workloads.cases]]
+label = "m"
+steps = 60000
+loops = 16
+
+[[workloads.cases]]
+label = "l"
+steps = 120000
+loops = 24
